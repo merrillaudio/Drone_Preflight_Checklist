@@ -7,8 +7,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Drone Checklist">
 <title>Drone Preflight Checklist</title>
+<link rel="manifest" href="manifest.json">
+<script>if('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js');</script>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@400;500&display=swap');
+  /* Offline fallback stacks if Google Fonts unavailable */
   :root {
     --bg: #1a1008;
     --surface: #221508;
