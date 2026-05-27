@@ -401,6 +401,10 @@
         <input class="field-input" type="text" id="f-roles" placeholder="Names / roles" autocomplete="off">
       </div>
       <div class="field-group field-full">
+        <div class="field-label">Communication with Other Aircraft</div>
+        <input class="field-input" type="text" id="f-comms" placeholder="Helicopter, tower etc." autocomplete="off">
+      </div>
+      <div class="field-group field-full">
         <div class="field-label">Mission Notes</div>
         <textarea class="field-input" id="f-notes" placeholder="Hazards, objectives, comms plan&#8230;"></textarea>
       </div>
@@ -438,7 +442,7 @@ const sections = [
     {text:"Confirm communications plan (primary/secondary)"},
     {text:"Select search tactic (grid, manual flight)"},
     {text:"Check airspace (Sectional chart, AirAware app, NOTAMs on SkyVector)"},
-    {text:"Confirm waivers if needed (Wilderness area, airport)"},
+    {text:"Confirm waivers or permissions needed (Wilderness area, airport)"},
     {text:"Review weather (Winds, Cloud cover)"},
     {text:"Identify terrain and signal hazards (Wires, Trees, Hills)"},
     {text:"All required gear and spares inventory (Drone, Batteries, Controller, Chargers)"},
@@ -492,7 +496,7 @@ function getKey(si,ii) { return si+'-'+ii; }
 function isSectionAllDone(si) { return sections[si].items.every((_,ii) => state[getKey(si,ii)]); }
 
 // Persist field values
-const fieldIds = ['f-mission','f-rpic','f-location','f-vo','f-roles','f-notes'];
+const fieldIds = ['f-mission','f-rpic','f-location','f-vo','f-roles','f-comms','f-notes'];
 function saveFields() {
   const vals = {};
   fieldIds.forEach(id => { const el=document.getElementById(id); if(el) vals[id]=el.value; });
